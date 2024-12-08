@@ -1,0 +1,100 @@
+import React, { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+
+const MyApplications = () => {
+  const [applications, setApplications] = useState(useLoaderData());
+
+  const handleCancel = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/myApplications/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        setApplications(applications.filter((app) => app._id !== id));
+        Swal.fire("Success", "Application canceled successfully", "success");
+      } else {
+        throw new Error("Failed to cancel application");
+      }
+    } catch (error) {
+      Swal.fire("Error", "Could not cancel the application", "error");
+    }
+  };
+
+  return (
+    <div className="max-w-6xl mx-auto p-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen">
+      <h1 className="text-4xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500">
+        My Visa Applications
+      </h1>
+
+      {!applications.length ? (
+        <p className="text-center text-gray-400 text-lg">
+          No visa applications found.
+        </p>
+      ) : (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {applications.map((app) => (
+            <div
+              key={app._id}
+              className="bg-gray-800 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2"
+            >
+              <figure>
+                <img
+                  src={app.countryImage}
+                  alt={app.country}
+                  className="w-full h-56 object-cover rounded-t-lg"
+                />
+              </figure>
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-yellow-400 mb-2">
+                  {app.country}
+                </h2>
+                <p className="text-gray-400 text-sm italic mb-4">
+                  {app.visaType}
+                </p>
+                <div className="text-gray-300 space-y-2">
+                  <p>
+                    <span className="font-semibold text-yellow-300">Processing Time:</span>{" "}
+                    {app.processingTime}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-yellow-300">Fee:</span> ${app.fee}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-yellow-300">Validity:</span>{" "}
+                    {app.validity}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-yellow-300">Application Method:</span>{" "}
+                    {app.applicationMethod}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-yellow-300">Applied Date:</span>{" "}
+                    {new Date(app.appliedDate).toLocaleDateString()}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-yellow-300">Applicant Name:</span>{" "}
+                    {`${app.firstName} ${app.lastName}`}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-yellow-300">Applicant Email:</span>{" "}
+                    {app.email}
+                  </p>
+                </div>
+                <button
+                  onClick={() => handleCancel(app._id)}
+                  className="mt-6 w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+                >
+                  Cancel Application
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default MyApplications;

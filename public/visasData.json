@@ -1,0 +1,188 @@
+[
+    {
+        "id": 1,
+        "countryImage": "https://media.istockphoto.com/id/525232662/photo/new-york-empire-state-building-and-statue-of-liberty.jpg?s=2048x2048&w=is&k=20&c=7UfyODzb36jCrsX9xtYUtlQy1Gcj7BMc3FvWe3uEzKg=",
+        "countryName": "United States",
+        "visaType": "Tourist Visa",
+        "processingTime": "7-15 days",
+        "requiredDocuments": [
+            "Valid passport",
+            "Visa application form",
+            "Recent passport-sized photograph",
+            "Proof of financial means",
+            "Travel itinerary"
+        ],
+        "description": "Allows visitors to travel to the USA for tourism or leisure.",
+        "ageRestriction": null,
+        "fee": 160,
+        "validity": "10 years",
+        "applicationMethod": "Apply online through the US embassy website"
+    },
+    {
+        "id": 2,
+        "countryImage": "https://media.istockphoto.com/id/1178852373/photo/canadian-flag-flying-over-old-quebec-city.jpg?s=2048x2048&w=is&k=20&c=HTgG5Fw1askxfJNpiNwihdKPN05QxLIDsUsUtUBQV4w=",
+        "countryName": "Canada",
+        "visaType": "Student Visa",
+        "processingTime": "15-30 days",
+        "requiredDocuments": [
+            "Valid passport",
+            "Visa application form",
+            "Recent passport-sized photograph",
+            "Acceptance letter from a Canadian institution",
+            "Proof of funds"
+        ],
+        "description": "For students pursuing education at recognized Canadian institutions.",
+        "ageRestriction": 18,
+        "fee": 150,
+        "validity": "Duration of study program",
+        "applicationMethod": "Apply online or through a visa application center"
+    },
+    {
+        "id": 3,
+        "countryImage": "https://media.istockphoto.com/id/1430153563/photo/big-ben-with-bridge-over-thames-and-flag-of-england-against-blue-sky-in-london-england-uk.jpg?s=2048x2048&w=is&k=20&c=kfau3QUsHG1XdQ3TZssUSSzIpmi-pf4RVC7b2s6qn1c=",
+        "countryName": "United Kingdom",
+        "visaType": "Work Visa",
+        "processingTime": "3-4 weeks",
+        "requiredDocuments": [
+            "Valid passport",
+            "Job offer letter",
+            "Proof of qualifications",
+            "English language proficiency test results",
+            "Proof of financial means"
+        ],
+        "description": "Allows skilled workers to work in the UK.",
+        "ageRestriction": 21,
+        "fee": 250,
+        "validity": "5 years",
+        "applicationMethod": "Apply online or through the UK embassy"
+    },
+    {
+        "id": 4,
+        "countryImage": "https://media.istockphoto.com/id/535455441/photo/view-of-sydney-harbour-australia.jpg?s=2048x2048&w=is&k=20&c=JkQCL_gOpuwCJwqRKPTaaOKARCmA1G88U0LkX_ifRaA=",
+        "countryName": "Australia",
+        "visaType": "Visitor Visa",
+        "processingTime": "20-30 days",
+        "requiredDocuments": [
+            "Valid passport",
+            "Visa application form",
+            "Proof of financial means",
+            "Travel itinerary"
+        ],
+        "description": "For tourism, visiting family, or business purposes.",
+        "ageRestriction": null,
+        "fee": 140,
+        "validity": "12 months",
+        "applicationMethod": "Apply online through the Australian government website"
+    },
+    {
+        "id": 5,
+        "countryImage": "https://media.istockphoto.com/id/876560704/photo/fuji-japan-in-spring.jpg?s=2048x2048&w=is&k=20&c=GDyWq0cjkwyRc07Gf5MBUzJzlgKnDQLXRCPP3kKeLig=",
+        "countryName": "Japan",
+        "visaType": "Tourist Visa",
+        "processingTime": "5-10 days",
+        "requiredDocuments": [
+            "Valid passport",
+            "Visa application form",
+            "Recent passport-sized photograph",
+            "Travel itinerary",
+            "Proof of financial means"
+        ],
+        "description": "Allows travelers to visit Japan for sightseeing and leisure.",
+        "ageRestriction": null,
+        "fee": 30,
+        "validity": "3 months",
+        "applicationMethod": "Apply through the nearest Japanese embassy or consulate"
+    },
+    {
+        "id": 6,
+        "countryImage": "https://media.istockphoto.com/id/619638736/photo/historic-town-of-rothenburg-ob-der-tauber-franconia-bavaria-germany.jpg?s=2048x2048&w=is&k=20&c=1K4OxbqHmvWigG2B0_Ji3z4rF73OILnssdEIu4-DMHg=",
+        "countryName": "Germany",
+        "visaType": "Business Visa",
+        "processingTime": "15-20 days",
+        "requiredDocuments": [
+            "Valid passport",
+            "Visa application form",
+            "Proof of business activity",
+            "Invitation letter from a German company",
+            "Proof of financial means"
+        ],
+        "description": "For business visits, meetings, or attending conferences in Germany.",
+        "ageRestriction": null,
+        "fee": 80,
+        "validity": "90 days",
+        "applicationMethod": "Apply at the German embassy"
+    },
+    {
+        "id": 7,
+        "countryImage": "https://media.istockphoto.com/id/1436430810/photo/paris-eiffel-tower.jpg?s=2048x2048&w=is&k=20&c=u2Ze7Z_BpUJp_s-TPw5p7IsbAlSICyiW8gFtv5N97KM=",
+        "countryName": "France",
+        "visaType": "Schengen Visa",
+        "processingTime": "10-15 days",
+        "requiredDocuments": [
+            "Valid passport",
+            "Visa application form",
+            "Travel insurance",
+            "Travel itinerary",
+            "Proof of accommodation"
+        ],
+        "description": "Allows short stays in France and other Schengen countries.",
+        "ageRestriction": null,
+        "fee": 60,
+        "validity": "90 days",
+        "applicationMethod": "Apply through the French consulate"
+    },
+    {
+        "id": 8,
+        "countryImage": "https://media.istockphoto.com/id/1146517111/photo/taj-mahal-mausoleum-in-agra.jpg?s=2048x2048&w=is&k=20&c=fW1YzvoN9JHAWTTLzGSj3T2WBfhZGZPztijYeRthQrA=",
+        "countryName": "India",
+        "visaType": "e-Tourist Visa",
+        "processingTime": "3-5 days",
+        "requiredDocuments": [
+            "Valid passport",
+            "Visa application form",
+            "Recent passport-sized photograph"
+        ],
+        "description": "Enables travelers to visit India for tourism purposes.",
+        "ageRestriction": null,
+        "fee": 25,
+        "validity": "30 days",
+        "applicationMethod": "Apply online through the Indian e-Visa portal"
+    },
+    {
+        "id": 9,
+        "countryImage": "https://media.istockphoto.com/id/497572532/photo/cityscape-of-guiyang-at-night.jpg?s=2048x2048&w=is&k=20&c=JMyqbmgLvOAsT0lChpBgBIzducDjf921cMECWtZm4iY=",
+        "countryName": "China",
+        "visaType": "Tourist Visa",
+        "processingTime": "4-7 days",
+        "requiredDocuments": [
+            "Valid passport",
+            "Visa application form",
+            "Travel itinerary",
+            "Proof of financial means",
+            "Invitation letter (if required)"
+        ],
+        "description": "For travelers visiting China for leisure or sightseeing.",
+        "ageRestriction": null,
+        "fee": 140,
+        "validity": "3 months",
+        "applicationMethod": "Apply at a Chinese visa application center"
+    },
+    {
+        "id": 10,
+        "countryImage": "https://media.istockphoto.com/id/1333035210/photo/sunset-view-of-the-dubai-marina-and-jbr-area-and-the-famous-ferris-wheel-and-golden-sand.jpg?s=2048x2048&w=is&k=20&c=Sfi0VJcU2LyKFyWVtVwiV6Xr6pu4IFqD6cLLTQ3jymw=",
+        "countryName": "United Arab Emirates",
+        "visaType": "Tourist Visa",
+        "processingTime": "2-5 days",
+        "requiredDocuments": [
+            "Valid passport",
+            "Visa application form",
+            "Proof of financial means",
+            "Recent passport-sized photograph"
+        ],
+        "description": "Allows visitors to explore cities like Dubai and Abu Dhabi.",
+        "ageRestriction": null,
+        "fee": 100,
+        "validity": "30 days",
+        "applicationMethod": "Apply through an airline, travel agency, or online portal"
+    }
+]
