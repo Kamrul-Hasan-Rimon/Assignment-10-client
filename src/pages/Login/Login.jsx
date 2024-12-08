@@ -1,31 +1,46 @@
 
+import { useContext } from "react";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 
 const Login = () => {
     const navigate = useNavigate();
 
+    const { login, googleLogin, setUser } = useContext(AuthContext);
 
-
-    const handleLogin = (e) => {
+    const handaleSubmit = (e) => {
         e.preventDefault();
         const password = e.target.password.value
         const email = e.target.email.value
-        if (email === "test@example.com" && password === "password123") {
-            toast.success("Logged in successfully!");
-            navigate("/home");
-        } else {
-            toast.error("Login failed!");
-        }
+        login(email, password)
+            .then((result) => {
+                setUser(result.user);
+                console.log(result.user);
+                toast.success("Login successful!");
+                navigate('/')
+            })
+            .catch((error) => {
+                console.error("Error:", error.message);
+                toast.error("You Can't Register!! Please Register Your Information");
+            });
+
+    }
+    const handleGooglelogin = () => {
+        googleLogin()
+            .then((result) => {
+                console.log(result.user)
+                setUser(result.user)
+                toast.success('Google login successful!')
+                navigate('/')
+            }
+            )
     };
 
-    const handleGoogleLogin = () => {
-        // Mock Google login functionality
-        toast.success("Logged in with Google!");
-        navigate("/home"); // Redirect after Google login
-    };
+
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-white to-gray-200">
@@ -33,7 +48,7 @@ const Login = () => {
                 <h2 className="text-4xl font-bold text-center text-gray-800 mb-6">
                     Login
                 </h2>
-                <form onSubmit={handleLogin}>
+                <form onSubmit={handaleSubmit}>
                     <div className="mb-4">
                         <label
                             htmlFor="email"
@@ -70,7 +85,7 @@ const Login = () => {
                             Forgot Password?
                         </Link>
                     </div>
-                  
+
                     <button
                         type="submit"
                         className="w-full bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white py-3 rounded-lg shadow-lg hover:opacity-90 transition-opacity font-semibold text-lg mb-4"
@@ -91,7 +106,7 @@ const Login = () => {
                 </div>
                 <div className="flex justify-center">
                     <button
-                        onClick={handleGoogleLogin}
+                        onClick={handleGooglelogin}
                         className="w-full flex items-center gap-2 justify-center bg-gradient-to-r from-blue-500 to-green-400 text-white py-3 rounded-lg shadow-lg hover:opacity-90 transition-opacity font-semibold text-lg"
                     >
                         <FcGoogle />
@@ -101,6 +116,6 @@ const Login = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Login;

@@ -1,42 +1,58 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-
 
 const Register = () => {
+  const { register, googleLogin, setUser} = useContext(AuthContext);
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [photoUrl, setPhotoUrl] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   const validatePassword = (password) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
     return regex.test(password);
   };
 
-  const handleRegister = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    const name = e.target.name.value;
+    const photoUrl = e.target.photoUrl.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
+    // Validate password
     if (!validatePassword(password)) {
-      setError("Password must contain at least 6 characters, including an uppercase letter, a lowercase letter, and a number.");
+      toast.error(
+        "Password must contain at least 6 characters, including uppercase, lowercase, and a number."
+      );
       return;
     }
 
-    // Mock register logic (replace with real logic)
-    if (email === "test@example.com") {
-      toast.error("Email already exists.");
-    } else {
-      toast.success("Registered successfully!");
-      navigate("/home"); // Redirect to Home or desired route
-    }
+    // Call register method
+    register(name, photoUrl, email, password)
+      .then((result) => {
+        console.log(result.user);
+        setUser(result.user);
+        toast.success("Registration successful!");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error:", error.message);
+        toast.error(error.message);
+      });
   };
 
   const handleGoogleLogin = () => {
-    // Mock Google login functionality
-    toast.success("Logged in with Google!");
-    navigate("/home"); // Redirect after Google login
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+        setUser(result.user)
+        toast.success("Google login successful!");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error:", error.message);
+        toast.error(error.message);
+      });
   };
 
   return (
@@ -45,7 +61,7 @@ const Register = () => {
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-6">
           Register
         </h2>
-        <form onSubmit={handleRegister}>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
               htmlFor="name"
@@ -55,9 +71,7 @@ const Register = () => {
             </label>
             <input
               type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              name="name"
               required
               className="w-full px-4 py-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-500"
               placeholder="Enter your name"
@@ -72,9 +86,7 @@ const Register = () => {
             </label>
             <input
               type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
               required
               className="w-full px-4 py-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-500"
               placeholder="Enter your email"
@@ -89,9 +101,7 @@ const Register = () => {
             </label>
             <input
               type="url"
-              id="photoUrl"
-              value={photoUrl}
-              onChange={(e) => setPhotoUrl(e.target.value)}
+              name="photoUrl"
               className="w-full px-4 py-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-500"
               placeholder="Enter your photo URL"
             />
@@ -105,16 +115,11 @@ const Register = () => {
             </label>
             <input
               type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
               required
               className="w-full px-4 py-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-500"
               placeholder="Enter your password"
             />
-            {error && (
-              <p className="text-red-500 text-sm mt-1">{error}</p>
-            )}
           </div>
           <button
             type="submit"
@@ -126,12 +131,12 @@ const Register = () => {
         <div className="text-center mb-4">
           <p className="text-gray-600">
             Already have an account?{" "}
-            <button
-              onClick={() => navigate("/login")}
+            <Link
+              to="/login"
               className="text-blue-500 hover:underline font-semibold"
             >
               Login
-            </button>
+            </Link>
           </p>
         </div>
         <div className="flex justify-center">
