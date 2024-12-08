@@ -5,18 +5,16 @@ import Swal from "sweetalert2";
 const MyApplications = () => {
   const [applications, setApplications] = useState(useLoaderData());
 
-  const handleCancel = async (id) => {
+  const handleCancel =  (id) => {
 
-      const response = await fetch(`http://localhost:5000/myApplications/${id}`, {
+      const response =  fetch(`http://localhost:5000/applyVisa/${id}`, {
         method: "DELETE",
       });
 
-      if (response.ok) {
+      
         setApplications(applications.filter((app) => app._id !== id));
         Swal.fire("Success", "Application canceled successfully", "success");
-      } else {
-        throw new Error("Failed to cancel application");
-      }
+    
     
   };
 
