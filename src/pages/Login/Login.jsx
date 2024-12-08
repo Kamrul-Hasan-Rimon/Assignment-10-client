@@ -36,8 +36,7 @@ const Login = () => {
                 setUser(result.user)
                 toast.success('Google login successful!')
                 navigate('/')
-            }
-            )
+            })
     };
 
 

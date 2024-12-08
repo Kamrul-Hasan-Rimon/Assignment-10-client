@@ -116,6 +116,7 @@ const Register = () => {
             <input
               type="password"
               name="password"
+              onChange={'validatePassword'}
               required
               className="w-full px-4 py-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-500"
               placeholder="Enter your password"

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaHome, FaPassport, FaUserPlus, FaSignInAlt, FaClipboardList } from "react-icons/fa";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Navbar = () => {
+
+  const { logout, user } = useContext(AuthContext)
+
   return (
     <div className="navbar bg-gradient-to-r from-red-500 to-purple-600 text-white shadow-lg px-6 py-4">
       <div className="flex-1">
@@ -122,6 +126,14 @@ const Navbar = () => {
               className="flex items-center gap-2 hover:text-yellow-400"
             >
               <FaUserPlus /> Register
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/login"
+              className="flex items-center gap-2 hover:text-yellow-400"
+            >
+              <FaUserPlus /> LogOut
             </Link>
           </li>
         </ul>

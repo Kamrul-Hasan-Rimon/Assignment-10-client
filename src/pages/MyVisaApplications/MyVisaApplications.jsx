@@ -6,7 +6,7 @@ const MyApplications = () => {
   const [applications, setApplications] = useState(useLoaderData());
 
   const handleCancel = async (id) => {
-    try {
+
       const response = await fetch(`http://localhost:5000/myApplications/${id}`, {
         method: "DELETE",
       });
@@ -17,19 +17,17 @@ const MyApplications = () => {
       } else {
         throw new Error("Failed to cancel application");
       }
-    } catch (error) {
-      Swal.fire("Error", "Could not cancel the application", "error");
-    }
+    
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen">
-      <h1 className="text-4xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500">
+    <div className="max-w-6xl mx-auto p-8 min-h-screen">
+      <h1 className="text-4xl font-bold mb-10 text-center text-black">
         My Visa Applications
       </h1>
 
       {!applications.length ? (
-        <p className="text-center text-gray-400 text-lg">
+        <p className="text-center text-black text-lg">
           No visa applications found.
         </p>
       ) : (
@@ -37,7 +35,7 @@ const MyApplications = () => {
           {applications.map((app) => (
             <div
               key={app._id}
-              className="bg-gray-800 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2"
+              className="bg-gray-100 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2"
             >
               <figure>
                 <img
@@ -47,38 +45,38 @@ const MyApplications = () => {
                 />
               </figure>
               <div className="p-6">
-                <h2 className="text-2xl font-bold text-yellow-400 mb-2">
+                <h2 className="text-2xl font-bold mb-2 text-black">
                   {app.country}
                 </h2>
-                <p className="text-gray-400 text-sm italic mb-4">
+                <p className="text-black text-sm italic mb-4">
                   {app.visaType}
                 </p>
-                <div className="text-gray-300 space-y-2">
+                <div className="text-black space-y-2">
                   <p>
-                    <span className="font-semibold text-yellow-300">Processing Time:</span>{" "}
+                    <span className="font-semibold">Processing Time:</span>{" "}
                     {app.processingTime}
                   </p>
                   <p>
-                    <span className="font-semibold text-yellow-300">Fee:</span> ${app.fee}
+                    <span className="font-semibold">Fee:</span> ${app.fee}
                   </p>
                   <p>
-                    <span className="font-semibold text-yellow-300">Validity:</span>{" "}
+                    <span className="font-semibold">Validity:</span>{" "}
                     {app.validity}
                   </p>
                   <p>
-                    <span className="font-semibold text-yellow-300">Application Method:</span>{" "}
+                    <span className="font-semibold">Application Method:</span>{" "}
                     {app.applicationMethod}
                   </p>
                   <p>
-                    <span className="font-semibold text-yellow-300">Applied Date:</span>{" "}
+                    <span className="font-semibold">Applied Date:</span>{" "}
                     {new Date(app.appliedDate).toLocaleDateString()}
                   </p>
                   <p>
-                    <span className="font-semibold text-yellow-300">Applicant Name:</span>{" "}
+                    <span className="font-semibold">Applicant Name:</span>{" "}
                     {`${app.firstName} ${app.lastName}`}
                   </p>
                   <p>
-                    <span className="font-semibold text-yellow-300">Applicant Email:</span>{" "}
+                    <span className="font-semibold">Applicant Email:</span>{" "}
                     {app.email}
                   </p>
                 </div>

@@ -22,8 +22,15 @@ const VisaDetails = () => {
     const appliedDate = e.target.appliedDate.value;
     const email = e.target.email.value;
     const fee = e.target.fee.value;
-
-    const user = { firstName, lastName, appliedDate, email, fee };
+    const countryName = visa.countryName; 
+    const visaType = visa.visaType; 
+    const countryImage = visa.countryImage; 
+    const validity = visa.validity; 
+    const applicationMethod = visa.applicationMethod; 
+    
+    const processingTime = visa.processingTime; 
+    const user = { firstName, lastName, appliedDate, email, fee, countryName, visaType, 
+      processingTime, countryImage,validity,applicationMethod};
 
     try {
       const response = await fetch('http://localhost:5000/applyVisa', {

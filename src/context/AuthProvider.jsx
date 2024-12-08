@@ -1,14 +1,15 @@
 import React, { createContext, useState, useEffect } from "react";
-import { 
-  signInWithEmailAndPassword, 
-  createUserWithEmailAndPassword, 
-  signInWithPopup, 
-  GoogleAuthProvider, 
-  signOut, 
-  onAuthStateChanged 
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  onAuthStateChanged
 } from "firebase/auth";
 
-import { auth } from "../firebase/firebase.config";
+import { auth } from "../firebase/firebase.config.js";
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext();
 
@@ -22,43 +23,44 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
 
     });
-    return  unsubscribe();
+    return unsubscribe();
   }, []);
 
   // Login function
-  const login =  (email, password) => {
+  const login = (email, password) => {
+    toast.success("Login successful!");
+    return signInWithEmailAndPassword(auth, email, password);
 
-       signInWithEmailAndPassword(auth, email, password);
-      toast.success("Login successful!");
 
   };
 
   // Register function
-  const register =  (name, email, password, photoURL) => {
+  const register = (name, email, password, photoUrl) => {
 
-      const userCredential =  createUserWithEmailAndPassword(auth, email, password);
-       userCredential.user.updateProfile({ displayName: name, photoURL });
-      toast.success("Registration successful!");
-   
+    const userCredential = createUserWithEmailAndPassword(auth, name, photoUrl, email, password);
+    userCredential.user.updateProfile({ displayName: name, photoUrl });
+    toast.success("Registration successful!");
+
   };
 
   // Google Authentication
-  const googleLogin =  () => {
+  const googleLogin = () => {
     const provider = new GoogleAuthProvider();
+    toast.success("Google login successful!");
+    return signInWithPopup(auth, provider);
 
-       signInWithPopup(auth, provider);
-      toast.success("Google login successful!");
 
   };
 
   // Logout function
-  const logout =  () => {
-       signOut(auth);
-      toast.success("Logout successful!");
-}
+  const logout = () => {
+    toast.success("Logout successful!");
+    return signOut(auth);
+
+  }
 
   return (
-    <AuthContext.Provider value={{ user, login, register, googleLogin, logout }}>
+    <AuthContext.Provider value={{ user, setUser, login, register, googleLogin, logout }}>
       {children}
     </AuthContext.Provider>
   );
