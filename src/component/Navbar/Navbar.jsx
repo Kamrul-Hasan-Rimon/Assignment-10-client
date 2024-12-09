@@ -35,8 +35,13 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white text-gray-800 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 right-2 p-2 shadow bg-white text-gray-800 rounded-box w-52"
           >
+            <li>
+              <Link to="/" className="hover:text-red-600">
+                <FaClipboardList /> Home
+              </Link>
+            </li>
             <li>
               <Link to="/allvisas" className="hover:text-red-600">
                 <FaClipboardList /> All Visas
@@ -58,7 +63,7 @@ const Navbar = () => {
               </Link>
             </li>
 
-            {/* Conditional rendering for Login/Logout */}
+
             {user && user?.email ? (
               <>
                 <li>

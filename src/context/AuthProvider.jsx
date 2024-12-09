@@ -27,7 +27,6 @@ const AuthProvider = ({ children }) => {
   };
 
 
-  // Register function
   const register = (name, email, password, photoUrl) => {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
@@ -61,8 +60,7 @@ const AuthProvider = ({ children }) => {
         toast.error(error.message);
       });
   };
-  
-  // Google Authentication
+
   const googleLogin = () => {
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider)
@@ -78,7 +76,7 @@ const AuthProvider = ({ children }) => {
       });
   };
 
-  // Logout function
+
   const logout = () => {
     signOut(auth)
       .then(() => {
