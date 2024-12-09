@@ -8,6 +8,7 @@ import AllVisas from "../pages/AllVisas/AllVisas";
 import VisaDetails from "../pages/VisaDetails/VisaDetails";
 import MyApplications from "../pages/MyVisaApplications/MyVisaApplications";
 import MyAddedVisas from "../pages/MyAddedVisas/MyAddedVisas";
+import NotFound from "../pages/NotFound/NotFound";
 
 
 
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<NotFound></NotFound>,
     children: [
       {
         path: '/',
