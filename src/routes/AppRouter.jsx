@@ -7,6 +7,7 @@ import AddVisa from "../pages/AddVisa/AddVisa";
 import AllVisas from "../pages/AllVisas/AllVisas";
 import VisaDetails from "../pages/VisaDetails/VisaDetails";
 import MyApplications from "../pages/MyVisaApplications/MyVisaApplications";
+import MyAddedVisas from "../pages/MyAddedVisas/MyAddedVisas";
 
 
 
@@ -38,7 +39,12 @@ const router = createBrowserRouter([
       {
         path: '/myapplications',
         element: <MyApplications></MyApplications>,
-        loader: () => fetch(`http://localhost:5000/applyVisa`),
+        loader: ()=>fetch('http://localhost:5000/applyVisa')
+      },
+      {
+        path: '/my-added-visas',
+        element: <MyAddedVisas></MyAddedVisas>,
+        loader: ()=>fetch('http://localhost:5000/applyVisa')
       },
     ]
   },
