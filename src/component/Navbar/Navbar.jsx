@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaHome, FaPassport, FaUserPlus, FaSignInAlt, FaClipboardList } from "react-icons/fa";
+import { FaHome, FaPassport, FaUserPlus, FaSignInAlt, FaClipboardList, FaSignOutAlt } from "react-icons/fa";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Navbar = () => {
-
-  const { logout, user } = useContext(AuthContext)
+  const { logout, user } = useContext(AuthContext);
 
   return (
     <div className="navbar bg-gradient-to-r from-red-500 to-purple-600 text-white shadow-lg px-6 py-4">
@@ -59,20 +58,35 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/my-applications" className="hover:text-red-600">
+              <Link to="/myapplications" className="hover:text-red-600">
                 My Visa Applications
               </Link>
             </li>
-            <li>
-              <Link to="/login" className="hover:text-red-600">
-                <FaSignInAlt /> Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/register" className="hover:text-red-600">
-                <FaUserPlus /> Register
-              </Link>
-            </li>
+
+            {/* Conditional rendering for Login/Logout */}
+            {user && user?.email ? (
+              <li>
+                <button
+                  onClick={logout}
+                  className="hover:text-red-600 flex items-center gap-2"
+                >
+                  <FaSignOutAlt /> Logout
+                </button>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link to="/login" className="hover:text-red-600">
+                    <FaSignInAlt /> Login
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/register" className="hover:text-red-600">
+                    <FaUserPlus /> Register
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
 
@@ -112,30 +126,37 @@ const Navbar = () => {
               My Visa Applications
             </Link>
           </li>
-          <li>
-            <Link
-              to="/login"
-              className="flex items-center gap-2 hover:text-yellow-400"
-            >
-              <FaSignInAlt /> Login
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/register"
-              className="flex items-center gap-2 hover:text-yellow-400"
-            >
-              <FaUserPlus /> Register
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/login"
-              className="flex items-center gap-2 hover:text-yellow-400"
-            >
-              <FaUserPlus /> LogOut
-            </Link>
-          </li>
+
+          {/* Conditional rendering for Login/Logout */}
+          {user && user?.email ? (
+            <li>
+              <button
+                onClick={logout}
+                className="flex items-center gap-2 hover:text-yellow-400"
+              >
+                <FaSignOutAlt /> Logout
+              </button>
+            </li>
+          ) : (
+            <>
+              <li>
+                <Link
+                  to="/login"
+                  className="flex items-center gap-2 hover:text-yellow-400"
+                >
+                  <FaSignInAlt /> Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/register"
+                  className="flex items-center gap-2 hover:text-yellow-400"
+                >
+                  <FaUserPlus /> Register
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>

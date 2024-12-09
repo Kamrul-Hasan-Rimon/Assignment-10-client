@@ -9,6 +9,7 @@ import VisaDetails from "../pages/VisaDetails/VisaDetails";
 import MyApplications from "../pages/MyVisaApplications/MyVisaApplications";
 import MyAddedVisas from "../pages/MyAddedVisas/MyAddedVisas";
 import NotFound from "../pages/NotFound/NotFound";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement:<NotFound></NotFound>,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         path: '/',
@@ -25,28 +26,40 @@ const router = createBrowserRouter([
       },
       {
         path: '/addvisa',
-        element: <AddVisa></AddVisa>
+        element:
+          <PrivateRoute>
+            <AddVisa></AddVisa>
+          </PrivateRoute>
       },
       {
-        path: '/visadetails/:id', 
-        element: <VisaDetails></VisaDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/addvisa/${params.id}`), 
+        path: '/visadetails/:id',
+        element:
+          <PrivateRoute>
+            <VisaDetails></VisaDetails>
+          </PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/addvisa/${params.id}`),
       },
 
       {
         path: '/allvisas',
         element: <AllVisas></AllVisas>,
-        loader:()=>fetch('http://localhost:5000/addvisa')
+        loader: () => fetch('http://localhost:5000/addvisa')
       },
       {
         path: '/myapplications',
-        element: <MyApplications></MyApplications>,
-        loader: ()=>fetch('http://localhost:5000/applyVisa')
+        element:
+          <PrivateRoute>
+            <MyApplications></MyApplications>
+          </PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/applyVisa')
       },
       {
         path: '/my-added-visas',
-        element: <MyAddedVisas></MyAddedVisas>,
-        loader: ()=>fetch('http://localhost:5000/applyVisa')
+        element:
+          <PrivateRoute>
+            <MyAddedVisas></MyAddedVisas>
+          </PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/applyVisa')
       },
     ]
   },
