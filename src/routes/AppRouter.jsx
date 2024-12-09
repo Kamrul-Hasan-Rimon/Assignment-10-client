@@ -14,6 +14,7 @@ import PrivateRoute from "./PrivateRoute";
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,7 +23,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element:
+        
+            <Home></Home>
+        
       },
       {
         path: '/addvisa',

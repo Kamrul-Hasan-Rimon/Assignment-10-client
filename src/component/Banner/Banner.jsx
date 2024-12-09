@@ -1,9 +1,10 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react"; 
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/pagination";
+import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
     return (
@@ -25,10 +26,26 @@ const Banner = () => {
                     >
                         <div className="bg-black bg-opacity-50 p-8 rounded-lg text-center">
                             <h2 className="text-4xl md:text-6xl font-bold mb-4">
-                                Explore Visa Requirements
+                                <Typewriter
+                                    words={['Explore Visa Requirements']}
+                                    loop={5}
+                                    cursor
+                                    cursorStyle="|"
+                                    typeSpeed={70}
+                                    deleteSpeed={60}
+                                    delaySpeed={1000}
+                                />
                             </h2>
                             <p className="text-lg md:text-xl">
-                                Discover the updated visa policies for your favorite destinations with ease.
+                                <Typewriter
+                                    words={[' Discover the updated visa policies for your favorite destinations with ease.']}
+                                    loop={5}
+                                    cursor
+                                    cursorStyle="|"
+                                    typeSpeed={70}
+                                    deleteSpeed={60}
+                                    delaySpeed={1000}
+                                />
                             </p>
                         </div>
                     </div>
@@ -44,10 +61,26 @@ const Banner = () => {
                     >
                         <div className="bg-black bg-opacity-50 p-8 rounded-lg text-center">
                             <h2 className="text-4xl md:text-6xl font-bold mb-4">
-                                Apply for Visas Online
+                                <Typewriter
+                                    words={['Apply for Visas Online']}
+                                    loop={5}
+                                    cursor
+                                    cursorStyle="|"
+                                    typeSpeed={70}
+                                    deleteSpeed={60}
+                                    delaySpeed={1000}
+                                />
                             </h2>
                             <p className="text-lg md:text-xl">
-                                Save time and effort by applying online with our seamless process.
+                                <Typewriter
+                                    words={[' Save time and effort by applying online with our seamless process.']}
+                                    loop={5}
+                                    cursor
+                                    cursorStyle="|"
+                                    typeSpeed={70}
+                                    deleteSpeed={60}
+                                    delaySpeed={1000}
+                                />
                             </p>
                         </div>
                     </div>
@@ -63,10 +96,26 @@ const Banner = () => {
                     >
                         <div className="bg-black bg-opacity-50 p-8 rounded-lg text-center">
                             <h2 className="text-4xl md:text-6xl font-bold mb-4">
-                                Track Your Applications
+                                <Typewriter
+                                    words={['Track Your Applications']}
+                                    loop={5}
+                                    cursor
+                                    cursorStyle="|"
+                                    typeSpeed={70}
+                                    deleteSpeed={60}
+                                    delaySpeed={1000}
+                                />
                             </h2>
                             <p className="text-lg md:text-xl">
-                                Monitor the status of your visa applications in real-time.
+                                <Typewriter
+                                    words={['Monitor the status of your visa applications in real-time.']}
+                                    loop={5}
+                                    cursor
+                                    cursorStyle="|"
+                                    typeSpeed={70}
+                                    deleteSpeed={60}
+                                    delaySpeed={1000}
+                                />
                             </p>
                         </div>
                     </div>
@@ -81,10 +130,26 @@ const Banner = () => {
                     >
                         <div className="bg-black bg-opacity-50 p-8 rounded-lg text-center">
                             <h2 className="text-4xl md:text-6xl font-bold mb-4">
-                                Immigration Support
+                                <Typewriter
+                                    words={['Immigration Support']}
+                                    loop={5}
+                                    cursor
+                                    cursorStyle="|"
+                                    typeSpeed={70}
+                                    deleteSpeed={60}
+                                    delaySpeed={1000}
+                                />
                             </h2>
                             <p className="text-lg md:text-xl">
-                                Get expert advice and guidance for smooth immigration processes.
+                                <Typewriter
+                                    words={['Get expert advice and guidance for smooth immigration processes.']}
+                                    loop={5}
+                                    cursor
+                                    cursorStyle="|"
+                                    typeSpeed={70}
+                                    deleteSpeed={60}
+                                    delaySpeed={1000}
+                                />
                             </p>
                         </div>
                     </div>

@@ -38,11 +38,6 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white text-gray-800 rounded-box w-52"
           >
             <li>
-              <Link to="/" className="hover:text-red-600">
-                <FaHome /> Home
-              </Link>
-            </li>
-            <li>
               <Link to="/allvisas" className="hover:text-red-600">
                 <FaClipboardList /> All Visas
               </Link>
@@ -92,11 +87,6 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="menu menu-horizontal px-1 hidden lg:flex items-center gap-6">
-          <li>
-            <Link to="/" className="flex items-center gap-2 hover:text-yellow-400">
-              <FaHome /> Home
-            </Link>
-          </li>
           <li>
             <Link to="/allvisas" className="flex items-center gap-2 hover:text-yellow-400">
               <FaClipboardList /> All Visas
