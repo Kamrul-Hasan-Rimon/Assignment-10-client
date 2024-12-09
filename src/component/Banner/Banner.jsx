@@ -31,8 +31,8 @@ const Banner = () => {
                                     loop={5}
                                     cursor
                                     cursorStyle="|"
-                                    typeSpeed={70}
-                                    deleteSpeed={60}
+                                    typeSpeed={80}
+                                    deleteSpeed={70}
                                     delaySpeed={1000}
                                 />
                             </h2>
@@ -42,8 +42,8 @@ const Banner = () => {
                                     loop={5}
                                     cursor
                                     cursorStyle="|"
-                                    typeSpeed={70}
-                                    deleteSpeed={60}
+                                    typeSpeed={80}
+                                    deleteSpeed={70}
                                     delaySpeed={1000}
                                 />
                             </p>
@@ -66,8 +66,8 @@ const Banner = () => {
                                     loop={5}
                                     cursor
                                     cursorStyle="|"
-                                    typeSpeed={70}
-                                    deleteSpeed={60}
+                                    typeSpeed={80}
+                                    deleteSpeed={70}
                                     delaySpeed={1000}
                                 />
                             </h2>
@@ -77,8 +77,8 @@ const Banner = () => {
                                     loop={5}
                                     cursor
                                     cursorStyle="|"
-                                    typeSpeed={70}
-                                    deleteSpeed={60}
+                                    typeSpeed={80}
+                                    deleteSpeed={70}
                                     delaySpeed={1000}
                                 />
                             </p>
@@ -101,8 +101,8 @@ const Banner = () => {
                                     loop={5}
                                     cursor
                                     cursorStyle="|"
-                                    typeSpeed={70}
-                                    deleteSpeed={60}
+                                    typeSpeed={80}
+                                    deleteSpeed={70}
                                     delaySpeed={1000}
                                 />
                             </h2>
@@ -112,8 +112,8 @@ const Banner = () => {
                                     loop={5}
                                     cursor
                                     cursorStyle="|"
-                                    typeSpeed={70}
-                                    deleteSpeed={60}
+                                    typeSpeed={80}
+                                    deleteSpeed={70}
                                     delaySpeed={1000}
                                 />
                             </p>
@@ -135,8 +135,8 @@ const Banner = () => {
                                     loop={5}
                                     cursor
                                     cursorStyle="|"
-                                    typeSpeed={70}
-                                    deleteSpeed={60}
+                                    typeSpeed={80}
+                                    deleteSpeed={70}
                                     delaySpeed={1000}
                                 />
                             </h2>
@@ -146,8 +146,8 @@ const Banner = () => {
                                     loop={5}
                                     cursor
                                     cursorStyle="|"
-                                    typeSpeed={70}
-                                    deleteSpeed={60}
+                                    typeSpeed={80}
+                                    deleteSpeed={70}
                                     delaySpeed={1000}
                                 />
                             </p>
@@ -165,10 +165,26 @@ const Banner = () => {
                     >
                         <div className="bg-black bg-opacity-50 p-8 rounded-lg text-center">
                             <h2 className="text-4xl md:text-6xl font-bold mb-4">
-                                Travel the World
+                            <Typewriter
+                                    words={['Travel the World']}
+                                    loop={5}
+                                    cursor
+                                    cursorStyle="|"
+                                    typeSpeed={80}
+                                    deleteSpeed={70}
+                                    delaySpeed={1000}
+                                />
                             </h2>
                             <p className="text-lg md:text-xl">
-                                Make your dream destinations a reality with simplified travel processes.
+                            <Typewriter
+                                    words={['Make your dream destinations a reality with simplified travel processes.']}
+                                    loop={5}
+                                    cursor
+                                    cursorStyle="|"
+                                    typeSpeed={80}
+                                    deleteSpeed={70}
+                                    delaySpeed={1000}
+                                />
                             </p>
                         </div>
                     </div>
