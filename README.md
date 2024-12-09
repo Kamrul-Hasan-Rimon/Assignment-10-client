@@ -1,8 +1,10 @@
-# React + Vite
+**Website Name: https://sparkly-treacle-d26df0.netlify.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Five features:
+1. Dynamic User Interfaces.
+2. Visa Application Management.
+3. Authentication System.
+4. Responsive Layout with Theme Options.
+5. Advanced Filtering and Searching
