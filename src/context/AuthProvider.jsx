@@ -8,38 +8,32 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // Monitor authentication state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
 
-    return () => unsubscribe(); // Ensure unsubscribe is called correctly
+    return () => unsubscribe();
   }, []);
 
-  // Login function
-  const login = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        toast.success("Login successful!");
-        setUser(result.user);
-        return result;
-      })
-      .catch((error) => {
-        console.error("Login Error:", error.message);
-        toast.error(error.message);
-      });
+  const login = async (email, password) => {
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      setUser(result.user);
+    } catch (error) {
+      console.error("Login Error:", error);
+      throw error;
+    }
   };
+
 
   // Register function
   const register = (name, email, password, photoUrl) => {
-    // Validate email before calling Firebase (simple regex for email format)
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
       toast.error("Invalid email format!");
       return;
     }
-  
     return createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;

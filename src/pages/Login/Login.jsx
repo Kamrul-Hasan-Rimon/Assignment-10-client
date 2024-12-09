@@ -16,19 +16,18 @@ const Login = () => {
         e.preventDefault();
         const password = e.target.password.value
         const email = e.target.email.value
-        login(email, password)
-            .then((result) => {
-                setUser(result.user);
-                console.log(result.user);
-                toast.success("Login successful!");
+            login(email, password)
+              .then(() => {
+                console.log("Logged in successfully!");
                 navigate('/')
-            })
-            .catch((error) => {
-                console.error("Error:", error.message);
-                toast.error("You Can't Register!! Please Register Your Information");
-            });
+              })
+              .catch((error) => {
+                console.error("Login Error:", error.message);
+              });
+          };
+          
 
-    }
+    
     const handleGooglelogin = () => {
         googleLogin()
             .then((result) => {

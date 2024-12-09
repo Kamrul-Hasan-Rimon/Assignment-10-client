@@ -60,14 +60,30 @@ const Navbar = () => {
 
             {/* Conditional rendering for Login/Logout */}
             {user && user?.email ? (
-              <li>
-                <button
-                  onClick={logout}
-                  className="hover:text-red-600 flex items-center gap-2"
-                >
-                  <FaSignOutAlt /> Logout
-                </button>
-              </li>
+              <>
+                <li>
+                  <div className="flex items-center gap-2">
+                    <div
+                      className="tooltip tooltip-bottom"
+                      data-tip={user.displayName || "User"}
+                    >
+                      <img
+                        src={user.photoURL}
+                        alt="User Avatar"
+                        className="w-10 h-10 rounded-full border-2 border-white"
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <button
+                    onClick={logout}
+                    className="hover:text-red-600 flex items-center gap-2"
+                  >
+                    <FaSignOutAlt /> Logout
+                  </button>
+                </li>
+              </>
             ) : (
               <>
                 <li>
@@ -117,16 +133,31 @@ const Navbar = () => {
             </Link>
           </li>
 
-          {/* Conditional rendering for Login/Logout */}
           {user && user?.email ? (
-            <li>
-              <button
-                onClick={logout}
-                className="flex items-center gap-2 hover:text-yellow-400"
-              >
-                <FaSignOutAlt /> Logout
-              </button>
-            </li>
+            <>
+              <li>
+                <div className="flex items-center gap-2">
+                  <div
+                    className="tooltip tooltip-bottom"
+                    data-tip={user.displayName}
+                  >
+                    <img
+                      src={user.photoURL}
+                      alt="User Avatar"
+                      className="w-10 h-10 rounded-full border-2 border-white"
+                    />
+                  </div>
+                </div>
+              </li>
+              <li>
+                <button
+                  onClick={logout}
+                  className="flex items-center gap-2 hover:text-yellow-400"
+                >
+                  <FaSignOutAlt /> Logout
+                </button>
+              </li>
+            </>
           ) : (
             <>
               <li>
