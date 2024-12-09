@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaHome, FaPassport, FaUserPlus, FaSignInAlt, FaClipboardList, FaSignOutAlt } from "react-icons/fa";
+import { FaPassport, FaUserPlus, FaSignInAlt, FaClipboardList, FaSignOutAlt } from "react-icons/fa";
 import { AuthContext } from "../../context/AuthProvider";
+import { IoHomeSharp } from "react-icons/io5";
 
 const Navbar = () => {
   const { logout, user } = useContext(AuthContext);
@@ -39,7 +40,7 @@ const Navbar = () => {
           >
             <li>
               <Link to="/" className="hover:text-red-600">
-                <FaClipboardList /> Home
+                <IoHomeSharp /> Home
               </Link>
             </li>
             <li>
@@ -108,6 +109,11 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="menu menu-horizontal px-1 hidden lg:flex items-center gap-6">
+          <li>
+            <Link to="/" className="hover:text-red-600">
+              <IoHomeSharp /> Home
+            </Link>
+          </li>
           <li>
             <Link to="/allvisas" className="flex items-center gap-2 hover:text-yellow-400">
               <FaClipboardList /> All Visas
