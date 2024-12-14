@@ -5,17 +5,16 @@ import Swal from "sweetalert2";
 const MyApplications = () => {
   const loaderData = useLoaderData();
   const [applications, setApplications] = useState(loaderData);
-  const [filteredApplications, setFilteredApplications] = useState(loaderData); // Filtered applications based on search
-  const [searchTerm, setSearchTerm] = useState(''); // Store search term
+  const [filteredApplications, setFilteredApplications] = useState(loaderData); 
+  const [searchTerm, setSearchTerm] = useState(''); 
   const [isCanceling, setIsCanceling] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Handle search input change
+
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  // Perform search based on the country name
   useEffect(() => {
     const filtered = applications.filter((app) =>
       app.countryName.toLowerCase().includes(searchTerm.toLowerCase())
@@ -26,7 +25,7 @@ const MyApplications = () => {
   const handleCancel = async (id) => {
     setIsCanceling(true);
     try {
-      const response = await fetch(`http://localhost:5000/applyVisa/${id}`, {
+      const response = await fetch(`https://visa-navigator-server-lilac.vercel.app/applyVisa/${id}`, {
         method: "DELETE",
       });
 
@@ -56,7 +55,6 @@ const MyApplications = () => {
         My Visa Applications
       </h1>
 
-      {/* Search Field */}
       <div className="mb-6">
         <input
           type="text"

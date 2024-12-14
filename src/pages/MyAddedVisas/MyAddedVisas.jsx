@@ -11,7 +11,7 @@ const MyAddedVisas = () => {
   const handleCancel = async (id) => {
     setIsCanceling(true);
     try {
-      await fetch(`http://localhost:5000/applyVisa/${id}`, {
+      await fetch(`https://visa-navigator-server-lilac.vercel.app/applyVisa/${id}`, {
         method: "DELETE",
       });
       setVisas(visas.filter((visa) => visa._id !== id));
@@ -39,7 +39,7 @@ const MyAddedVisas = () => {
     };
 
     try {
-      await fetch(`http://localhost:5000/applyVisa/${selectedVisa._id}`, {
+      await fetch(`https://visa-navigator-server-lilac.vercel.app/applyVisa/${selectedVisa._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

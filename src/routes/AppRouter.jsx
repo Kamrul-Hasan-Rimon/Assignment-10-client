@@ -41,13 +41,13 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <VisaDetails></VisaDetails>
           </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/addvisa/${params.id}`),
+        loader: ({ params }) => fetch(`https://visa-navigator-server-lilac.vercel.app/addvisa/${params.id}`),
       },
 
       {
         path: '/allvisas',
         element: <AllVisas></AllVisas>,
-        loader: () => fetch('http://localhost:5000/addvisa')
+        loader: () => fetch('https://visa-navigator-server-lilac.vercel.app/addvisa')
       },
       {
         path: '/myapplications',
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <MyApplications></MyApplications>
           </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/applyVisa')
+        loader: () => fetch('https://visa-navigator-server-lilac.vercel.app/applyVisa')
       },
       {
         path: '/my-added-visas',
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <MyAddedVisas></MyAddedVisas>
           </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/applyVisa')
+        loader: () => fetch('https://visa-navigator-server-lilac.vercel.app/applyVisa')
       },
     ]
   },

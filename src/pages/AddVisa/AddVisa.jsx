@@ -36,7 +36,7 @@ const AddVisa = () => {
 
         console.log(visaforminfo);
 
-        fetch('http://localhost:5000/addvisa', {
+        fetch('https://visa-navigator-server-lilac.vercel.app/addvisa', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(visaforminfo),
