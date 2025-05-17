@@ -11,7 +11,7 @@ const DashboardLayout = () => {
                 </h2>
                 <nav className="flex flex-col space-y-3">
                     <Link
-                        to="/dashboard"
+                        to="/dashboard/overview"
                         className="text-left px-4 py-3 rounded-xl transition-all duration-200 font-medium text-gray-700 bg-white hover:bg-yellow-100 shadow-sm"
                     >
                         🏠 Overview

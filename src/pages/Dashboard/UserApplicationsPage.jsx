@@ -87,10 +87,7 @@ const UserApplicationsPage = () => {
                         {/* Add more statuses based on your data */}
                     </select>
                 </div>
-                {/* Add more sorting options if needed, e.g., sort by country */}
-                {/* <button onClick={() => requestSort('visaType')} className="btn btn-sm btn-outline">
-          Sort by Visa Type {sortConfig.key === 'visaType' ? (sortConfig.direction === 'ascending' ? '🔼' : '🔽') : ''}
-        </button> */}
+       
             </div>
 
 
