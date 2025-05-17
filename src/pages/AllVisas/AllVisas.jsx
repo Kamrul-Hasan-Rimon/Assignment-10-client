@@ -9,7 +9,7 @@ const AllVisas = () => {
     const [visaTypeFilter, setVisaTypeFilter] = useState('');
 
     useEffect(() => {
-        fetch('https://visa-navigator-server-lilac.vercel.app/allvisas')
+        fetch('http://localhost:5000/allvisas')
             .then((res) => res.json())
             .then((data) => {
                 setVisas(data);
@@ -65,7 +65,7 @@ const AllVisas = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             {filteredVisas.map((visa) => (
                                 <div
-                                    key={visa.id}
+                                    key={visa._id}
                                     className="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between"
                                 >
                                     <img

@@ -34,7 +34,7 @@ const VisaDetails = () => {
       processingTime, countryImage,validity,applicationMethod};
 
     try {
-      const response = await fetch('https://visa-navigator-server-lilac.vercel.app/applyVisa', {
+      const response = await fetch('http://localhost:5000/applyVisa', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

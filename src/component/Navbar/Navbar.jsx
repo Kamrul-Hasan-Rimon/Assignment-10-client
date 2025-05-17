@@ -49,22 +49,12 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="/my-added-visas"
+              to="/dashboard"
               className={({ isActive }) =>
                 isActive ? "text-yellow-400 font-semibold" : "hover:text-yellow-300"
               }
             >
-              My Added Visas
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/myapplications"
-              className={({ isActive }) =>
-                isActive ? "text-yellow-400 font-semibold" : "hover:text-yellow-300"
-              }
-            >
-              My Visa Applications
+              Dashboard
             </NavLink>
           </li>
         </>

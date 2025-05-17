@@ -15,8 +15,7 @@ const MyAddedVisas = () => {
   // Filter visas by logged-in user on initial load
   useEffect(() => {
     if (user && loaderData) {
-      // Assuming each visa has a 'addedBy' field with user email
-      const userVisas = loaderData.filter(visa => visa.email === user.email);
+      const userVisas = loaderData.filter(visa => visa.addedBy === user.email);
       setVisas(userVisas);
       setIsLoading(false);
     }
@@ -25,7 +24,7 @@ const MyAddedVisas = () => {
   const handleCancel = async (id) => {
     setIsCanceling(true);
     try {
-      const response = await fetch(`https://visa-navigator-server-lilac.vercel.app/applyvisa/${id}`, {
+      const response = await fetch(`http://localhost:5000/addedvisas/${id}`, {
         method: "DELETE",
       });
 
@@ -63,21 +62,19 @@ const MyAddedVisas = () => {
       fee: e.target.fee.value,
       validity: e.target.validity.value,
       applicationMethod: e.target.applicationMethod.value,
-      // Preserve the original addedBy field
       addedBy: selectedVisa.addedBy,
-      // Update the modified timestamp
       updatedAt: new Date().toISOString()
     };
 
     try {
-      const response = await fetch(`https://visa-navigator-server-lilac.vercel.app/addvisa/${selectedVisa._id}`, {
+      const response = await fetch(`http://localhost:5000/addedvisas/${selectedVisa._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(updatedVisa),
       });
-
+      console.log(response);
       if (response.ok) {
         setVisas(prev =>
           prev.map(visa =>
@@ -106,7 +103,7 @@ const MyAddedVisas = () => {
   }
 
   return (
-    <div className="max-w-6xl lg:mt-24 mt-16 mx-auto p-8 min-h-screen">
+    <div className="max-w-6xl mx-auto p-8 min-h-screen">
       <h1 className="text-4xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500">
         My Added Visas
       </h1>
@@ -126,9 +123,6 @@ const MyAddedVisas = () => {
                 className="w-full h-56 object-cover rounded-t-lg"
                 src={visa.countryImage}
                 alt={visa.countryName}
-                onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/400x225?text=Country+Image';
-                }}
               />
               <div className="p-4">
                 <h3 className="text-2xl font-bold mb-2 text-gray-800">

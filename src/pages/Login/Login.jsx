@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const Login = () => {
     const navigate = useNavigate();
     const { login, googleLogin, setUser } = useContext(AuthContext);
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -54,6 +55,7 @@ const Login = () => {
         googleLogin()
             .then((result) => {
                 setUser(result.user);
+                console.log(result.user);
                 Swal.fire({
                     icon: 'success',
                     title: 'Google Login Successful!',
