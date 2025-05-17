@@ -34,16 +34,16 @@ const AddVisa = () => {
             requiredDocuments,
         };
 
-        console.log(visaforminfo);
+        // console.log(visaforminfo);
 
-        fetch('http://localhost:5000/addvisa', {
+        fetch('https://visa-navigator-server-lilac.vercel.app/addvisa', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(visaforminfo),
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log('Response:', data);
+                // console.log('Response:', data);
                 if (data.insertId) {
                     Swal.fire({
                         title: 'Success!',

@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 const VisaDetails = () => {
   const visa = useLoaderData();
-  console.log('sdfwg',visa) 
+  // console.log('sdfwg',visa) 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState("");
 
@@ -34,7 +34,7 @@ const VisaDetails = () => {
       processingTime, countryImage,validity,applicationMethod};
 
     try {
-      const response = await fetch('http://localhost:5000/applyVisa', {
+      const response = await fetch('https://visa-navigator-server-lilac.vercel.app/applyVisa', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const VisaDetails = () => {
         body: JSON.stringify(user),
       });
       const data = await response.json();
-      console.log(data)
+      // console.log(data)
       if (data.insertedId) {
         Swal.fire({
           title: 'Success!',

@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { register, googleLogin, setUser } = useContext(AuthContext);
@@ -14,32 +14,73 @@ const Register = () => {
     const photoUrl = e.target.photoUrl.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+
     if (password.length < 6) {
-      toast.error("Password must be at least 6 characters long.");
+      Swal.fire({
+        icon: 'error',
+        title: 'Password Too Short',
+        text: 'Password must be at least 6 characters long.',
+        confirmButtonColor: '#3085d6',
+      });
       return;
     }
+
+    Swal.fire({
+      title: 'Creating Account...',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
     try {
       const result = await register(name, email, password, photoUrl);
-      console.log("User registered:", result);
+      Swal.fire({
+        icon: 'success',
+        title: 'Registration Successful!',
+        text: 'Your account has been created successfully',
+        timer: 2000,
+        showConfirmButton: false
+      });
       navigate("/");
     } catch (error) {
-      // Handle error
-      console.error("Error during registration:", error);
-      toast.error("Registration failed!");
+      Swal.fire({
+        icon: 'error',
+        title: 'Registration Failed',
+        text: error.message || 'Failed to create account. Please try again.',
+        confirmButtonColor: '#3085d6',
+      });
     }
   };
 
   const handleGoogleLogin = () => {
+    Swal.fire({
+      title: 'Signing in with Google...',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
     googleLogin()
       .then((result) => {
-        console.log(result.user);
         setUser(result.user);
-        toast.success("Google login successful!");
+        Swal.fire({
+          icon: 'success',
+          title: 'Google Login Successful!',
+          text: 'You have been logged in with Google',
+          timer: 2000,
+          showConfirmButton: false
+        });
         navigate("/");
       })
       .catch((error) => {
-        console.error("Error:", error.message);
-        toast.error(error.message);
+        Swal.fire({
+          icon: 'error',
+          title: 'Google Login Failed',
+          text: error.message || 'Failed to login with Google. Please try again.',
+          confirmButtonColor: '#3085d6',
+        });
       });
   };
 
