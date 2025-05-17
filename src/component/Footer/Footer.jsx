@@ -92,10 +92,11 @@ export default function Footer() {
                                     className="flex-grow bg-gray-800 text-white outline-none pl-6 rounded-full"
                                     placeholder="Your Email Address"
                                 />
-                                <button className="ml-6 bg-gradient-to-r from-pink-500 to-red-600 text-white py-2 px-6 rounded-full hover:bg-gradient-to-r hover:from-pink-600 hover:to-red-700 transition-all duration-300">
+
+                            </form>
+                            <button className=" bg-gradient-to-r from-pink-500 to-red-600 text-white py-2 px-6 rounded-full mt-5 hover:bg-gradient-to-r hover:from-pink-600 hover:to-red-700 transition-all duration-300">
                                     Subscribe
                                 </button>
-                            </form>
                         </div>
                     </div>
                 </div>

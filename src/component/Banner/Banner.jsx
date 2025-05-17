@@ -8,7 +8,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
     return (
-        <div className="relative w-full h-screen">
+        <div className="relative w-full h-screen ">
             <Swiper
                 modules={[Autoplay, Pagination]}
                 autoplay={{ delay: 4000, disableOnInteraction: false }}

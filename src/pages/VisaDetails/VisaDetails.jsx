@@ -4,7 +4,8 @@ import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const VisaDetails = () => {
-  const visa = useLoaderData(); 
+  const visa = useLoaderData();
+  console.log('sdfwg',visa) 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState("");
 
@@ -33,7 +34,7 @@ const VisaDetails = () => {
       processingTime, countryImage,validity,applicationMethod};
 
     try {
-      const response = await fetch('https://visa-navigator-server-lilac.vercel.app/applyVisa', {
+      const response = await fetch('http://localhost:5000/applyVisa', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +71,7 @@ const VisaDetails = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-4xl mt-20 mx-auto p-6">
       {visa ? (
         <div className="bg-white shadow-lg rounded-lg p-8 space-y-6">
           <h1 className="text-4xl font-bold text-center">{visa.countryName}</h1>

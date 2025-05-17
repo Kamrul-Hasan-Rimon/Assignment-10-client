@@ -7,7 +7,7 @@ import { Toaster } from 'react-hot-toast'
 export default function MainLayout() {
   return (
     <div>
-      <Toaster position="top-right" />
+      <Toaster position="top-center" />
       <div>
         <Navbar></Navbar>
       </div>

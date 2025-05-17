@@ -8,7 +8,7 @@ export default function Testimonials() {
                     <h2 className="text-5xl font-extrabold text-center text-gray-800 mb-12 tracking-tight">
                         What Our Users Are Saying
                     </h2>
-                    <div className="flex justify-center gap-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-center  gap-12">
                         {/* Testimonial 1 */}
                         <div className="w-full sm:w-80 bg-white rounded-xl shadow-xl p-8 text-center transform transition-transform hover:scale-105 hover:shadow-2xl">
                             <div className="relative mb-6">

@@ -25,7 +25,7 @@ const MyApplications = () => {
   const handleCancel = async (id) => {
     setIsCanceling(true);
     try {
-      const response = await fetch(`https://visa-navigator-server-lilac.vercel.app/applyVisa/${id}`, {
+      const response = await fetch(`http://localhost:5000/applyVisa/${id}`, {
         method: "DELETE",
       });
 
@@ -36,7 +36,7 @@ const MyApplications = () => {
         setIsCanceling(false);
       } else {
         const errorData = await response.json();
-        alert("Failed to cancel application");
+        alert("Failed to cancel application",errorData);
       }
     } catch (error) {
       Swal.fire("Error", "Could not cancel the application", "error");
@@ -50,7 +50,7 @@ const MyApplications = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto p-8 min-h-screen">
+    <div className="max-w-6xl mt-28 mx-auto p-8 min-h-screen">
       <h1 className="text-4xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500">
         My Visa Applications
       </h1>

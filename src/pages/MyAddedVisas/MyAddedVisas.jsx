@@ -5,13 +5,13 @@ import Swal from "sweetalert2";
 const MyAddedVisas = () => {
   const [visas, setVisas] = useState(useLoaderData());
   const [isCanceling, setIsCanceling] = useState(false);
-  const [isUpdating, setIsUpdating] = useState(false); 
+  const [isUpdating, setIsUpdating] = useState(false);
   const [selectedVisa, setSelectedVisa] = useState(null);
 
   const handleCancel = async (id) => {
     setIsCanceling(true);
     try {
-      await fetch(`https://visa-navigator-server-lilac.vercel.app/applyVisa/${id}`, {
+      await fetch(`http://localhost:5000/applyVisa/${id}`, {
         method: "DELETE",
       });
       setVisas(visas.filter((visa) => visa._id !== id));
@@ -23,7 +23,7 @@ const MyAddedVisas = () => {
   }
 
   const handleUpdateClick = (visa) => {
-    setSelectedVisa(visa); a
+    setSelectedVisa(visa);
   };
 
   const handleUpdateSubmit = async (e) => {
@@ -39,7 +39,7 @@ const MyAddedVisas = () => {
     };
 
     try {
-      await fetch(`https://visa-navigator-server-lilac.vercel.app/applyVisa/${selectedVisa._id}`, {
+      await fetch(`http://localhost:5000/applyVisa/${selectedVisa._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -55,14 +55,14 @@ const MyAddedVisas = () => {
 
       Swal.fire("Success", "Visa updated successfully", "success");
       document.getElementById("updateModal").checked = false;
-       setIsUpdating(false); 
+      setIsUpdating(false);
     } catch (error) {
       Swal.fire("Error", "Could not update the visa", "error");
     }
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-8 min-h-screen">
+    <div className="max-w-6xl mt-16 mx-auto mt-28 p-8 min-h-screen">
       <h1 className="text-4xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500">
         My Added Visas
       </h1>

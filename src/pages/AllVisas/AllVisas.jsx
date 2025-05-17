@@ -9,7 +9,7 @@ const AllVisas = () => {
     const [visaTypeFilter, setVisaTypeFilter] = useState('');
 
     useEffect(() => {
-        fetch('https://visa-navigator-server-lilac.vercel.app/addvisa')
+        fetch('http://localhost:5000/allvisas')
             .then((res) => res.json())
             .then((data) => {
                 setVisas(data);
@@ -39,9 +39,9 @@ const AllVisas = () => {
 
 
     return (
-        <div className="bg-gradient-to-r from-blue-50 via-white to-gray-50 min-h-screen py-16 px-8">
+        <div className="bg-gradient-to-r from-blue-50 via-white to-gray-50 min-h-screen py-16 mt-20 px-8">
             <div className="flex justify-between items-center mb-8">
-                <h1 className="text-4xl font-bold text-center text-gray-800">All Visas</h1>
+                <h1 className="text-4xl font-bold mb-3 mx-auto text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500">All Visas</h1>
                 <select
                     value={visaTypeFilter}
                     onChange={handleVisaTypeChange}

@@ -36,7 +36,7 @@ const AddVisa = () => {
 
         console.log(visaforminfo);
 
-        fetch('https://visa-navigator-server-lilac.vercel.app/addvisa', {
+        fetch('http://localhost:5000/addvisa', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(visaforminfo),
@@ -59,7 +59,7 @@ const AddVisa = () => {
     };
 
     return (
-        <div className="bg-gradient-to-r from-blue-600 via-blue-800 to-blue-900 min-h-screen py-16 px-4">
+        <div className="bg-gradient-to-r from-blue-600 via-blue-800 to-blue-900 min-h-screen py-16 mt-10 px-4">
             <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-xl">
                 <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">Add Visa Information</h2>
 
