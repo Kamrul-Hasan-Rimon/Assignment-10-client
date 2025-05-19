@@ -9,7 +9,7 @@ const AllVisas = () => {
     const [visaTypeFilter, setVisaTypeFilter] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/allvisas')
+        fetch('https://visa-navigator-server-lilac.vercel.app/allvisas')
             .then((res) => res.json())
             .then((data) => {
                 setVisas(data);

@@ -48,7 +48,7 @@ const AddVisa = () => {
         });
 
         // First API call to addvisa collection
-        fetch('http://localhost:5000/useraddedvisa', {
+        fetch('https://visa-navigator-server-lilac.vercel.app/useraddedvisa', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(visaInfo),
@@ -56,7 +56,7 @@ const AddVisa = () => {
             .then(res => res.json())
             .then(addVisaResult => {
                 // Second API call to allvisa collection
-                return fetch('http://localhost:5000/addvisa', {
+                return fetch('https://visa-navigator-server-lilac.vercel.app/addvisa', {
                     method: 'POST',
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(visaInfo),

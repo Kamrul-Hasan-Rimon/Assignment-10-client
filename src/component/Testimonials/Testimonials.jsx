@@ -14,7 +14,7 @@ export default function Testimonials() {
                             <div className="relative mb-6">
                                 <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-br from-purple-600 via-pink-500 to-red-500 opacity-30 rounded-full"></div>
                                 <img
-                                    src="https://ntrepidcorp.com/wp-content/uploads/2016/06/team-1-640x640.jpg"
+                                    src="https://c8.alamy.com/comp/H6HYG8/adorable-boy-isolated-on-a-white-background-H6HYG8.jpg"
                                     alt="John Doe"
                                     className="w-32 h-32 object-cover rounded-full mx-auto border-4 border-white shadow-xl"
                                 />

@@ -37,7 +37,7 @@ const MyApplications = () => {
   const handleCancel = async (id) => {
     setIsCanceling(true);
     try {
-      const response = await fetch(`http://localhost:5000/applyVisa/${id}`, {
+      const response = await fetch(`https://visa-navigator-server-lilac.vercel.app/applyVisa/${id}`, {
         method: "DELETE",
       });
 
